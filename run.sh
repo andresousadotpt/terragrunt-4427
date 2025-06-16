@@ -1,21 +1,9 @@
 #!/usr/bin/env bash
 
-echo "output-module-groups"
-terragrunt output-module-groups
+echo "with working-dir"
+terragrunt plan --all --working-dir . --out-dir=$PWD/plans-with-working-dir
 echo
 echo
 
-echo "find --json --dag"
-terragrunt find --json --dag
-echo
-echo
-
-echo "find --json --dependencies"
-terragrunt find --json --dependencies
-echo
-echo
-
-echo "find --json --dag --dependencies"
-terragrunt find --json --dag --dependencies
-echo
-echo
+echo "without working-dir"
+terragrunt plan --all --out-dir=$PWD/plans-without-working-dir
